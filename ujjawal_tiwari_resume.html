@@ -1,0 +1,313 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0B1F3A;
+  --navy-mid:#1A3558;
+  --accent:#00B4D8;
+  --accent2:#0077A8;
+  --light-bg:#F0F6FA;
+  --card-bg:#ffffff;
+  --text-main:#0B1F3A;
+  --text-muted:#4A6080;
+  --border:#D0E2EF;
+  --tag-bg:#E6F4FA;
+  --tag-color:#0077A8;
+}
+body{font-family:'Inter',sans-serif;background:var(--light-bg);color:var(--text-main);line-height:1.6}
+.resume{max-width:900px;margin:0 auto;background:var(--card-bg)}
+
+/* HERO HEADER */
+.hero{background:linear-gradient(135deg,#0B1F3A 0%,#1A3558 60%,#0077A8 100%);padding:48px 48px 40px;color:#fff;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:rgba(0,180,216,0.08);pointer-events:none}
+.hero::after{content:'';position:absolute;right:40px;bottom:-30px;width:160px;height:160px;border-radius:50%;background:rgba(0,180,216,0.06);pointer-events:none}
+.hero-name{font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;letter-spacing:-0.5px;margin-bottom:6px}
+.hero-title{font-size:13px;font-weight:500;color:var(--accent);letter-spacing:1.2px;text-transform:uppercase;margin-bottom:18px;line-height:1.5}
+.hero-contact{display:flex;flex-wrap:wrap;gap:20px;margin-top:20px}
+.hero-contact a,.hero-contact span{color:rgba(255,255,255,0.82);font-size:13px;display:flex;align-items:center;gap:6px;text-decoration:none}
+.hero-contact i{font-size:15px;color:var(--accent)}
+.cert-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,180,216,0.18);border:1px solid rgba(0,180,216,0.35);border-radius:20px;padding:5px 14px;font-size:12px;color:#7DD9F0;margin-top:16px}
+
+/* LAYOUT */
+.body-grid{display:grid;grid-template-columns:290px 1fr;min-height:600px}
+.sidebar{background:#F4F9FD;border-right:1px solid var(--border);padding:32px 24px}
+.main{padding:32px 36px}
+
+/* SECTION HEADERS */
+.sec-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sidebar .sec-label::after{background:#C8DCE8}
+
+/* SUMMARY */
+.summary-text{font-size:13.5px;color:var(--text-muted);line-height:1.75;margin-bottom:8px}
+
+/* SKILL TAGS */
+.tag-grid{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px}
+.tag{background:var(--tag-bg);color:var(--tag-color);font-size:11.5px;padding:4px 10px;border-radius:4px;font-weight:500;border:1px solid #B8DFF0}
+
+/* SIDEBAR ITEMS */
+.side-item{margin-bottom:8px;font-size:13px;color:var(--text-muted);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
+.side-item i{color:var(--accent2);font-size:14px;margin-top:2px;flex-shrink:0}
+.side-section{margin-bottom:28px}
+
+/* EXPERIENCE CARDS */
+.exp-card{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.exp-card:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.exp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px}
+.exp-role{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--navy)}
+.exp-period{font-size:11.5px;color:var(--accent2);background:var(--tag-bg);padding:3px 9px;border-radius:12px;white-space:nowrap;border:1px solid #B8DFF0;flex-shrink:0}
+.exp-company{font-size:13px;font-weight:500;color:var(--accent2);margin-bottom:10px}
+.exp-desc{font-size:13px;color:var(--text-muted);line-height:1.7}
+.exp-bullets{list-style:none;margin-top:8px}
+.exp-bullets li{font-size:13px;color:var(--text-muted);line-height:1.65;margin-bottom:5px;padding-left:14px;position:relative}
+.exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:10px;top:3px}
+
+/* PROJECT CARDS */
+.proj-card{background:var(--light-bg);border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin-bottom:16px}
+.proj-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
+.proj-name{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--navy)}
+.proj-role{font-size:11px;background:#E0F0F8;color:var(--accent2);padding:2px 8px;border-radius:10px;border:1px solid #B8DFF0;white-space:nowrap}
+.proj-client{font-size:12px;color:var(--accent2);font-weight:500;margin-bottom:4px}
+.proj-modules{font-size:11.5px;color:#607080;margin-bottom:8px;font-style:italic}
+.proj-bullets{list-style:none;margin-top:4px}
+.proj-bullets li{font-size:12.5px;color:var(--text-muted);line-height:1.6;margin-bottom:4px;padding-left:13px;position:relative}
+.proj-bullets li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:10px;top:3px}
+
+/* EDUCATION */
+.edu-item{margin-bottom:16px}
+.edu-degree{font-size:13.5px;font-weight:600;color:var(--navy)}
+.edu-uni{font-size:12.5px;color:var(--text-muted)}
+.edu-year{font-size:11.5px;color:var(--accent2)}
+
+/* CERT */
+.cert-item{background:rgba(0,119,168,0.07);border:1px solid #B8DFF0;border-radius:6px;padding:12px 14px;margin-bottom:10px}
+.cert-name{font-size:12.5px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.cert-id{font-size:11px;color:var(--text-muted)}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:0 0 24px}
+
+@media print{
+  body{background:#fff}
+  .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+
+<div class="resume">
+  <div class="hero">
+    <div class="hero-name">Ujjawal Tiwari</div>
+    <div class="hero-title">D365 F&amp;O Certified Technical Consultant · Data Engineer (Microsoft Fabric) · X++ · .NET C# · Python · API Developer · Azure · DevOps · Power Platform · Power BI · SCM · Finance</div>
+    <div class="hero-contact">
+      <a href="mailto:uk.ut76@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i>uk.ut76@gmail.com</a>
+      <span><i class="ti ti-phone" aria-hidden="true"></i>+91 7004635848</span>
+      <span><i class="ti ti-map-pin" aria-hidden="true"></i>Gurugram, Haryana, India</span>
+    </div>
+    <div class="cert-badge"><i class="ti ti-certificate" aria-hidden="true"></i>Microsoft Certified: Dynamics 365 F&amp;O Apps Developer Associate · ID: 801B0235D696D6F</div>
+  </div>
+
+  <div class="body-grid">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+      <div class="side-section">
+        <div class="sec-label">Summary</div>
+        <p class="summary-text">Results-driven D365 F&amp;O Microsoft Certified Technical Consultant with 3+ years of hands-on experience designing, developing, deploying, and supporting enterprise ERP solutions across Finance and SCM. Expert in X++, .NET (C#), Python, Microsoft Fabric, Azure, Power Platform, and enterprise integrations — delivering scalable, secure, high-performance solutions that drive digital transformation.</p>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-label">Core Skills</div>
+        <div class="tag-grid">
+          <span class="tag">X++ / AOT</span>
+          <span class="tag">.NET C#</span>
+          <span class="tag">Python</span>
+          <span class="tag">D365 F&amp;O</span>
+          <span class="tag">Microsoft Fabric</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Azure DevOps</span>
+          <span class="tag">LCS</span>
+          <span class="tag">Power BI</span>
+          <span class="tag">Power Apps</span>
+          <span class="tag">Power Automate</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">SOAP / Web Services</span>
+          <span class="tag">OData</span>
+          <span class="tag">DMF / BYOD</span>
+          <span class="tag">SSRS Reports</span>
+          <span class="tag">Electronic Reporting</span>
+          <span class="tag">Data Migration</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Windows Server / IIS</span>
+          <span class="tag">CI/CD Pipelines</span>
+          <span class="tag">SCM</span>
+          <span class="tag">Finance</span>
+          <span class="tag">Git</span>
+          <span class="tag">HTML/CSS/JS</span>
+          <span class="tag">PHP / MySQL</span>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">Master of Computer Applications (MCA)</div>
+          <div class="edu-uni">Jaipur National University, Jaipur</div>
+          <div class="edu-year">2019 – 2022</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-uni">Chatra College, Chatra</div>
+          <div class="edu-year">2016 – 2019</div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-label">Certification</div>
+        <div class="cert-item">
+          <div class="cert-name">Microsoft Certified: Dynamics 365 Finance &amp; Operations Apps Developer Associate</div>
+          <div class="cert-id">Credential ID: 801B0235D696D6F<br>Cert No: D47B95-QB83BC</div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-label">Personal</div>
+        <div class="side-item"><i class="ti ti-calendar" aria-hidden="true"></i>DOB: 31 March 1999</div>
+        <div class="side-item"><i class="ti ti-flag" aria-hidden="true"></i>Indian · Hindi, English</div>
+        <div class="side-item"><i class="ti ti-user" aria-hidden="true"></i>Male · Unmarried</div>
+      </div>
+
+      <div class="side-section">
+        <div class="sec-label">Soft Skills</div>
+        <div class="tag-grid">
+          <span class="tag">Problem Solving</span>
+          <span class="tag">Collaboration</span>
+          <span class="tag">Communication</span>
+          <span class="tag">Documentation</span>
+          <span class="tag">Project Management</span>
+          <span class="tag">Adaptability</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+      <!-- WORK EXPERIENCE -->
+      <div class="sec-label">Work Experience</div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-role">Technical Consultant</div>
+          <span class="exp-period">May 2026 – Present</span>
+        </div>
+        <div class="exp-company"><i class="ti ti-building" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>Team Computers · Full-time · Gurugram, Haryana (On-site)</div>
+        <ul class="exp-bullets">
+          <li>Design, develop, deploy, and support enterprise ERP solutions across Finance and Supply Chain Management (SCM) using D365 F&amp;O.</li>
+          <li>Develop custom forms, tables, classes, extensions, workflows, batch jobs, data entities, and business processes within D365 F&amp;O using X++.</li>
+          <li>Build and maintain integrations using REST APIs, SOAP Web Services, OData, Custom Services, and third-party applications.</li>
+          <li>Implement BYOD, DMF, Electronic Reporting (ER), SSRS Reports, and data migration solutions for reporting and business operations.</li>
+          <li>Work with Microsoft Azure, Azure DevOps, LCS, Power BI, Power Apps, Power Automate, and Microsoft Fabric to deliver scalable cloud-based solutions and analytics platforms.</li>
+          <li>Develop custom APIs and automation tools using .NET (C#) and Python.</li>
+          <li>Manage cloud and on-premises deployments, Windows Server administration, IIS configuration, SQL Server management, CI/CD, performance tuning, and RCA.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-role">Technical Consultant</div>
+          <span class="exp-period">2023 – May 2026</span>
+        </div>
+        <div class="exp-company"><i class="ti ti-building" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>Ranchi Information Technology Pvt. Ltd.</div>
+        <ul class="exp-bullets">
+          <li>Delivered X++ customizations, extensions, and integrations for multiple end-to-end D365 F&amp;O implementations across Manufacturing and Packaging domains.</li>
+          <li>Designed and developed Data Entities; executed large-scale data migration using DMF.</li>
+          <li>Built SSRS reports and integrated Power BI dashboards for business and operational insights.</li>
+          <li>Implemented Electronic Reporting (ER) configurations for e-Invoicing using out-of-the-box ER frameworks, including file-based import/export via File Locations.</li>
+          <li>Developed ZATCA-compliant e-Invoicing integrations with external systems.</li>
+          <li>Implemented SMS integration triggered from Maintenance Request actions using external service APIs.</li>
+          <li>Enabled electronic and digital signatures on invoices and business documents per compliance requirements.</li>
+          <li>Configured Demand Forecasting models and integrations within D365 F&amp;O.</li>
+          <li>Implemented event handlers, workflows, and validations following D365 F&amp;O best practices.</li>
+          <li>Managed CI/CD pipelines, deployments, and code reviews using Azure DevOps.</li>
+          <li>Supported UAT, Go-Live, and post-production stabilization; published D365 F&amp;O solutions on Microsoft AppSource including package validation, compliance checks, and deployment readiness.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card" style="border-bottom:none;margin-bottom:0;padding-bottom:0">
+        <div class="exp-header">
+          <div class="exp-role">Arc GIS Operator</div>
+          <span class="exp-period">2021 – 2022</span>
+        </div>
+        <div class="exp-company"><i class="ti ti-building" style="font-size:12px;margin-right:4px" aria-hidden="true"></i>Survey of India, Ranchi</div>
+        <p class="exp-desc">Worked on spatial data processing, map creation, and quality validation for government survey projects.</p>
+      </div>
+
+      <div class="divider" style="margin-top:28px"></div>
+
+      <!-- PROJECTS -->
+      <div class="sec-label">Project Experience</div>
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-name">Make My Trip – Travel &amp; Hospitality Financial Automation Platform</div>
+        </div>
+        <div class="proj-client">Makemytrip (Onsite) · May 2026 – Present (Full Time)</div>
+        <div class="proj-modules">Modules: Finance, Microsoft Fabric, DMF</div>
+        <ul class="proj-bullets">
+          <li>Developed and supported an enterprise-scale Travel &amp; Hospitality Financial Automation Platform processing high-volume transactions from flights, hotels, buses, holiday packages, tours, and other booking channels.</li>
+          <li>Built scalable data pipelines using Microsoft Fabric to ingest, transform, validate, and consolidate millions of daily records from multiple platforms and partner systems.</li>
+          <li>Integrated processed data with D365 F&amp;O through DMF and custom services.</li>
+          <li>Designed automated batch jobs for journal creation, voucher posting, customer/vendor transactions, payment settlements, refunds, cancellations, commissions, taxes, and reconciliation processes.</li>
+          <li>Implemented monitoring, exception handling, and performance optimization to ensure data accuracy, financial compliance, and seamless end-to-end business operations.</li>
+        </ul>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-name">Super Packs Business Solutions LLP – Corrugated Box Production</div>
+        </div>
+        <div class="proj-modules">Modules: Product Information Management, Procurement &amp; Sourcing, Inventory, Master Planning, Production Control, Sales, Asset Management</div>
+        <ul class="proj-bullets">
+          <li>Delivered D365 F&amp;O customizations using X++: tables, forms, classes, extensions, and event-driven frameworks.</li>
+          <li>Designed and implemented Pre-Sales PDI and Pre-Production PDI solutions for item costing, item creation, and automated BOM &amp; Route association.</li>
+          <li>Developed and managed Data Entities to support accurate, high-volume data migration.</li>
+          <li>Designed SSRS reports and integrated Power BI dashboards for operational and management reporting.</li>
+          <li>Executed Cloud Sandbox and Production deployments via Azure DevOps; participated in unit testing, code reviews, CI/CD pipelines, and post-go-live stabilization.</li>
+        </ul>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-header">
+          <div class="proj-name">SLZ &amp; Helena (Iran) – Flexible Packaging (Film &amp; Pouch Production)</div>
+        </div>
+        <div class="proj-modules">Modules: Product Information Management, Procurement, Inventory, Production, Master Planning, Sales, Asset Management, Landed Cost, WMS · On-Premises</div>
+        <ul class="proj-bullets">
+          <li>Developed and extended AOT objects including forms, tables, queries, and menu items for Flexible Packaging processes.</li>
+          <li>Customized Pre-Sales PDI and Pre-Production PDI forms to calculate item costing and automate item creation, including BOM and Route association for flexible packaging scenarios.</li>
+          <li>Designed Product Data Sheets and Technical Design Sheets to capture film, pouch, lamination, and production parameters.</li>
+          <li>Performed data migration using DMF and custom data entities; managed on-premises UAT and Production deployments including IIS configuration, SQL setup, certificates, and services.</li>
+          <li>Configured Azure DevOps pipelines, version control, build, and release management for on-premises environments; prepared FDD, ER configurations, deployment guides, and UAT documentation.</li>
+        </ul>
+      </div>
+
+      <div class="proj-card" style="margin-bottom:0">
+        <div class="proj-header">
+          <div class="proj-name">Ficus Pax (A UFP Industries Company) – Corrugated Manufacturing</div>
+        </div>
+        <div class="proj-modules">Modules: Procurement, Sales, Inventory, Master Planning, Production, Asset Management</div>
+        <ul class="proj-bullets">
+          <li>Delivered end-to-end D365 F&amp;O customizations across Procurement, Sales, Production, and Inventory modules.</li>
+          <li>Designed Data Entities and executed data migration for Asset Management and Quality Control modules.</li>
+          <li>Developed SSRS reports and implemented integrations with external systems using OData and REST APIs.</li>
+          <li>Performed performance tuning, issue troubleshooting, and production support; prepared technical documentation and supported end-user training and UAT activities.</li>
+        </ul>
+      </div>
+
+    </main>
+  </div>
+
+  <div style="background:var(--navy);padding:14px 48px;text-align:center;font-size:11.5px;color:rgba(255,255,255,0.5)">
+    I hereby declare that all information stated above is true, correct, and complete to the best of my knowledge. &nbsp;—&nbsp; <strong style="color:rgba(255,255,255,0.75)">Ujjawal Tiwari</strong>
+  </div>
+</div>
