@@ -15,11 +15,11 @@
   --tag-bg:#E6F4FA;
   --tag-color:#0077A8;
 }
-body{font-family:'Inter',sans-serif;background:var(--light-bg);color:var(--text-main);line-height:1.6}
-.resume{max-width:900px;margin:0 auto;background:var(--card-bg)}
+body{font-family:'Inter',sans-serif;background:var(--light-bg);color:var(--text-main);line-height:1.6;margin:10px}
+.resume{max-width:1020px;margin:0;background:var(--card-bg)}
 
 /* HERO HEADER */
-.hero{background:linear-gradient(135deg,#0B1F3A 0%,#1A3558 60%,#0077A8 100%);padding:48px 48px 40px;color:#fff;position:relative;overflow:hidden}
+.hero{background:linear-gradient(135deg,#0B1F3A 0%,#1A3558 60%,#0077A8 100%);padding:36px 32px 32px;color:#fff;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;right:-60px;top:-60px;width:280px;height:280px;border-radius:50%;background:rgba(0,180,216,0.08);pointer-events:none}
 .hero::after{content:'';position:absolute;right:40px;bottom:-30px;width:160px;height:160px;border-radius:50%;background:rgba(0,180,216,0.06);pointer-events:none}
 .hero-name{font-family:'Space Grotesk',sans-serif;font-size:38px;font-weight:700;letter-spacing:-0.5px;margin-bottom:6px}
@@ -31,8 +31,8 @@ body{font-family:'Inter',sans-serif;background:var(--light-bg);color:var(--text-
 
 /* LAYOUT */
 .body-grid{display:grid;grid-template-columns:290px 1fr;min-height:600px}
-.sidebar{background:#F4F9FD;border-right:1px solid var(--border);padding:32px 24px}
-.main{padding:32px 36px}
+.sidebar{background:#F4F9FD;border-right:1px solid var(--border);padding:24px 18px}
+.main{padding:24px 16px}
 
 /* SECTION HEADERS */
 .sec-label{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent2);margin-bottom:14px;display:flex;align-items:center;gap:8px}
@@ -49,10 +49,10 @@ body{font-family:'Inter',sans-serif;background:var(--light-bg);color:var(--text-
 /* SIDEBAR ITEMS */
 .side-item{margin-bottom:8px;font-size:13px;color:var(--text-muted);display:flex;align-items:flex-start;gap:7px;line-height:1.5}
 .side-item i{color:var(--accent2);font-size:14px;margin-top:2px;flex-shrink:0}
-.side-section{margin-bottom:28px}
+.side-section{margin-bottom:22px}
 
 /* EXPERIENCE CARDS */
-.exp-card{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.exp-card{margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border)}
 .exp-card:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
 .exp-header{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:4px}
 .exp-role{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:var(--navy)}
@@ -64,7 +64,7 @@ body{font-family:'Inter',sans-serif;background:var(--light-bg);color:var(--text-
 .exp-bullets li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:10px;top:3px}
 
 /* PROJECT CARDS */
-.proj-card{background:var(--light-bg);border:1px solid var(--border);border-radius:8px;padding:18px 20px;margin-bottom:16px}
+.proj-card{background:var(--light-bg);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:12px}
 .proj-header{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
 .proj-name{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--navy)}
 .proj-role{font-size:11px;background:#E0F0F8;color:var(--accent2);padding:2px 8px;border-radius:10px;border:1px solid #B8DFF0;white-space:nowrap}
@@ -86,11 +86,15 @@ body{font-family:'Inter',sans-serif;background:var(--light-bg);color:var(--text-
 .cert-id{font-size:11px;color:var(--text-muted)}
 
 /* DIVIDER */
-.divider{height:1px;background:var(--border);margin:0 0 24px}
+.divider{height:1px;background:var(--border);margin:0 0 18px}
 
 @media print{
-  body{background:#fff}
-  .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff;margin:5px;padding:0}
+  .resume{margin:0}
+  .hero{-webkit-print-color-adjust:exact;print-color-adjust:exact;padding:30px 28px 26px}
+  .sidebar{padding:18px 12px}
+  .main{padding:18px 14px}
+  @page{margin:0.3in}
 }
 </style>
 
@@ -211,7 +215,7 @@ body{font-family:'Inter',sans-serif;background:var(--light-bg);color:var(--text-
           <li>Develop custom APIs and automation tools using .NET (C#) and Python.</li>
           <li>Manage cloud and on-premises deployments, Windows Server administration, IIS configuration, SQL Server management, CI/CD, performance tuning, and RCA.</li>
         </ul>
-      </div>
+      </div>      
 
       <div class="exp-card">
         <div class="exp-header">
