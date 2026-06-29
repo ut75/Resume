@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ujjawal Tiwari – D365 F&O Technical Consultant</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:     #0f1117;
+    --mid:     #4a5568;
+    --soft:    #718096;
+    --rule:    #e2e8f0;
+    --accent:  #1a56db;
+    --accent-light: #ebf0ff;
+    --bg:      #ffffff;
+    --tag-bg:  #f1f5f9;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f7f8fa;
+    color: var(--ink);
+    font-size: 13.5px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── PAGE SHELL ── */
+  .page {
+    max-width: 860px;
+    margin: 36px auto 60px;
+    background: var(--bg);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,.06);
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 36px 44px 28px;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+
+  .name {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -.4px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .title {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+  }
+
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    font-size: 12.5px;
+    color: var(--mid);
+  }
+
+  .contact-list a { color: var(--mid); text-decoration: none; }
+  .contact-list a:hover { color: var(--accent); }
+
+  .cert-badge {
+    margin-top: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--accent-light);
+    border: 1px solid #c3d5f9;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .cert-badge svg { flex-shrink: 0; }
+
+  /* ── BODY LAYOUT ── */
+  .body {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 1px;
+  }
+
+  /* ── SIDEBAR ── */
+  aside {
+    border-right: 1px solid var(--rule);
+    padding: 28px 24px;
+    background: #fafbfd;
+  }
+
+  /* ── MAIN ── */
+  main {
+    padding: 28px 36px;
+  }
+
+  /* ── SECTION ── */
+  .section { margin-bottom: 28px; }
+  .section:last-child { margin-bottom: 0; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--soft);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    margin-bottom: 14px;
+  }
+
+  /* ── SKILLS TAGS ── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .tag {
+    background: var(--tag-bg);
+    border-radius: 4px;
+    padding: 3px 8px;
+    font-size: 11.5px;
+    font-weight: 500;
+    color: var(--mid);
+    white-space: nowrap;
+  }
+
+  .tag.accent {
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  /* ── EDU / CERT ── */
+  .edu-item { margin-bottom: 14px; }
+  .edu-item:last-child { margin-bottom: 0; }
+
+  .edu-degree {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+
+  .edu-school {
+    font-size: 11.5px;
+    color: var(--mid);
+    margin-top: 1px;
+  }
+
+  .edu-year {
+    font-size: 11px;
+    color: var(--soft);
+    margin-top: 1px;
+  }
+
+  /* ── PERSONAL ── */
+  .info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3px 8px;
+    font-size: 11.5px;
+  }
+
+  .info-label { color: var(--soft); font-weight: 500; }
+  .info-val   { color: var(--mid); }
+
+  /* ── EXPERIENCE ENTRY ── */
+  .entry { margin-bottom: 22px; }
+  .entry:last-child { margin-bottom: 0; }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .entry-role {
+    font-size: 14px;
+    font-weight: 650;
+    color: var(--ink);
+  }
+
+  .entry-period {
+    font-size: 11.5px;
+    color: var(--soft);
+    white-space: nowrap;
+  }
+
+  .entry-company {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-top: 1px;
+    margin-bottom: 6px;
+  }
+
+  .entry-location {
+    font-size: 11px;
+    color: var(--soft);
+  }
+
+  ul.bullets {
+    list-style: none;
+    padding: 0;
+    margin-top: 6px;
+  }
+
+  ul.bullets li {
+    position: relative;
+    padding-left: 13px;
+    margin-bottom: 4px;
+    font-size: 12.5px;
+    color: var(--mid);
+    line-height: 1.55;
+  }
+
+  ul.bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: #b0bec9;
+  }
+
+  /* ── PROJECT ENTRY ── */
+  .project { margin-bottom: 18px; }
+  .project:last-child { margin-bottom: 0; }
+
+  .project-title {
+    font-size: 13px;
+    font-weight: 650;
+    color: var(--ink);
+  }
+
+  .project-meta {
+    font-size: 11px;
+    color: var(--soft);
+    margin-top: 1px;
+    margin-bottom: 6px;
+  }
+
+  /* ── INFRA BLOCK ── */
+  .infra-area { margin-bottom: 12px; }
+  .infra-area:last-child { margin-bottom: 0; }
+  .infra-heading {
+    font-size: 12px;
+    font-weight: 650;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .infra-body {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.55;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { height: 1px; background: var(--rule); margin: 18px 0; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; font-size: 11px; }
+    .page { box-shadow: none; border: none; margin: 0; border-radius: 0; }
+  }
+
+  @media (max-width: 640px) {
+    .page { margin: 0; border-radius: 0; }
+    header { grid-template-columns: 1fr; }
+    .contact-list { align-items: flex-start; }
+    .body { grid-template-columns: 1fr; }
+    aside { border-right: none; border-bottom: 1px solid var(--rule); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div>
+      <div class="name">Ujjawal Tiwari</div>
+      <div class="title">D365 F&amp;O Technical Consultant · Data Engineer · X++ · Azure · Power Platform</div>
+      <div class="cert-badge" style="margin-top:14px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1a56db" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"/></svg>
+        Microsoft Certified: D365 F&amp;O Apps Developer Associate &nbsp;·&nbsp; ID: 801B0235D696D6F
+      </div>
+    </div>
+    <ul class="contact-list">
+      <li><a href="mailto:uk.ut76@gmail.com">uk.ut76@gmail.com</a></li>
+      <li><a href="tel:+917004635848">+91 700 463 5848</a></li>
+      <li>Gurugram, Haryana, India</li>
+    </ul>
+  </header>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- SIDEBAR -->
+    <aside>
+
+      <!-- CORE SKILLS -->
+      <div class="section">
+        <div class="section-label">Core Technical</div>
+        <div class="tags">
+          <span class="tag accent">X++ / AOT</span>
+          <span class="tag accent">.NET C#</span>
+          <span class="tag accent">D365 F&amp;O</span>
+          <span class="tag accent">Microsoft Fabric</span>
+          <span class="tag">Azure</span>
+          <span class="tag">Azure DevOps</span>
+          <span class="tag">LCS</span>
+          <span class="tag">REST API</span>
+          <span class="tag">OData</span>
+          <span class="tag">SOAP</span>
+          <span class="tag">DMF / BYOD</span>
+          <span class="tag">SSRS</span>
+          <span class="tag">Electronic Reporting</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag">Git</span>
+        </div>
+      </div>
+
+      <!-- POWER PLATFORM -->
+      <div class="section">
+        <div class="section-label">Power Platform</div>
+        <div class="tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">Power Apps</span>
+          <span class="tag">Power Automate</span>
+        </div>
+      </div>
+
+      <!-- MODULES -->
+      <div class="section">
+        <div class="section-label">F&amp;O Modules</div>
+        <div class="tags">
+          <span class="tag">Finance</span>
+          <span class="tag">SCM</span>
+          <span class="tag">Production Control</span>
+          <span class="tag">Inventory</span>
+          <span class="tag">Procurement</span>
+          <span class="tag">Sales</span>
+          <span class="tag">Asset Mgmt</span>
+        </div>
+      </div>
+
+      <!-- INFRA -->
+      <div class="section">
+        <div class="section-label">Infrastructure</div>
+        <div class="tags">
+          <span class="tag">Windows Server</span>
+          <span class="tag">IIS / AD FS</span>
+          <span class="tag">Service Fabric</span>
+          <span class="tag">SSL / TLS</span>
+          <span class="tag">PowerShell</span>
+        </div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-label">Education</div>
+        <div class="edu-item">
+          <div class="edu-degree">MCA</div>
+          <div class="edu-school">Jaipur National University</div>
+          <div class="edu-year">2019 – 2022</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">BCA</div>
+          <div class="edu-school">Chatra College, Jharkhand</div>
+          <div class="edu-year">2016 – 2019</div>
+        </div>
+      </div>
+
+      <!-- PERSONAL -->
+      <div class="section">
+        <div class="section-label">Personal</div>
+        <div class="info-grid">
+          <span class="info-label">DOB</span>   <span class="info-val">31 Mar 1999</span>
+          <span class="info-label">Languages</span><span class="info-val">Hindi, English</span>
+          <span class="info-label">Nationality</span><span class="info-val">Indian</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+
+      <!-- SUMMARY -->
+      <div class="section">
+        <div class="section-label">Profile</div>
+        <p style="font-size:12.5px;color:var(--mid);line-height:1.65;">
+          Microsoft Certified D365 F&amp;O Technical Consultant with <strong>3+ years</strong> of end-to-end ERP implementation experience across Finance and SCM. Proven ability to deliver X++ customisations, system integrations (REST, OData, SOAP), data migrations, SSRS/ER reporting, and Source Control — across both <strong>cloud and on-premises</strong> environments. Currently building enterprise-scale financial automation at MakeMyTrip using Microsoft Fabric.
+        </p>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <div class="section-label">Experience</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-role">Technical Consultant</span>
+            <span class="entry-period">May 2026 – Present</span>
+          </div>
+          <div class="entry-company">Team Computers <span class="entry-location">· Gurugram, On-site</span></div>
+          <ul class="bullets">
+            <li>Design, develop and support D365 F&amp;O solutions across Finance and SCM — custom forms, tables, classes, extensions, workflows, and batch jobs in X++.</li>
+            <li>Build integrations via REST, OData, SOAP and custom services; implement DMF, BYOD, ER, and SSRS for reporting and data operations.</li>
+            <li>Deliver analytics with Microsoft Fabric and Power Platform; manage Azure and LCS.</li>
+            <li>Handle on-premises Infrastructure (IIS, SQL Server, Windows Server, certificates).</li>
+          </ul>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-role">Technical Consultant</span>
+            <span class="entry-period">2023 – May 2026</span>
+          </div>
+          <div class="entry-company">Ranchi Information Technology Pvt. Ltd.</div>
+          <ul class="bullets">
+            <li>Delivered multiple end-to-end D365 F&amp;O implementations for Manufacturing and Packaging clients (Super Packs, Ficus Pax, SLZ &amp; Helena).</li>
+            <li>Developed X++ customisations, CoC extensions, event handlers, workflows, data entities, and large-scale DMF migrations.</li>
+            <li>Implemented ZATCA-compliant e-Invoicing, India GST e-Invoice (IRN) integrations, SMS triggers, electronic/digital signatures, and Demand Forecasting.</li>
+            <li>Built SSRS reports, Power BI dashboards, and ER configurations; managed Azure DevOps, UAT, Go-Live and hypercare support.</li>
+            <li>Published D365 F&amp;O solution on Microsoft AppSource (package validation, compliance, deployment readiness).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-label">Key Projects</div>
+
+        <div class="project">
+          <div class="project-title">MakeMyTrip – Travel &amp; Hospitality Financial Automation</div>
+          <div class="project-meta">Finance · Microsoft Fabric · DMF &nbsp;·&nbsp; May 2026 – Present</div>
+          <ul class="bullets">
+            <li>Built scalable Fabric pipelines ingesting millions of daily records from flights, hotels, holidays, and bus channels; integrated with D365 F&amp;O via DMF and custom services.</li>
+            <li>Automated journal creation, voucher posting, payment settlements, refunds, commissions, taxes, and reconciliation with exception handling and monitoring.</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <div class="project-title">Super Packs – Corrugated Box Production (Cloud)</div>
+          <div class="project-meta">SCM · Production · Sales · Asset Management</div>
+          <ul class="bullets">
+            <li>Developed Pre-Sales &amp; Pre-Production PDI solutions — automated item costing, item creation, and BOM/Route association in X++.</li>
+            <li>Delivered SSRS and Power BI reporting; executed Cloud Sandbox and Production deployments.</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <div class="project-title">SLZ &amp; Helena (Iran) – Flexible Packaging (On-Premises)</div>
+          <div class="project-meta">SCM · Production · Inventory · Asset Management</div>
+          <ul class="bullets">
+            <li>Customised PDI forms for film/pouch/lamination scenarios; designed Product Data Sheets and Technical Design Sheets.</li>
+            <li>Managed full on-premises deployment: IIS, SQL, AD FS, Service Fabric, certificates, and DevOps; authored FDD and UAT docs.</li>
+          </ul>
+        </div>
+
+        <div class="project">
+          <div class="project-title">Ficus Pax (UFP Industries) – Corrugated Manufacturing (Cloud)</div>
+          <div class="project-meta">Procurement · Sales · Inventory · Production · Asset Management</div>
+          <ul class="bullets">
+            <li>End-to-end D365 F&amp;O implementation; data entity design and DMF migration for Asset Management and QC modules.</li>
+            <li>OData/REST integrations with external systems; performance tuning, SSRS, and post-production support.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- INFRA NOTE -->
+      <div class="section">
+        <div class="section-label">Infrastructure &amp; DevOps Highlights</div>
+        <div class="infra-body" style="font-size:12px;color:var(--mid);line-height:1.6;">
+          Independent management of D365 F&amp;O cloud and on-premises environments — Windows Server, AD FS, IIS, SQL Server, SSL/TLS, Service Fabric, network &amp; firewall config, backup/DR, performance tuning, and environment cloning: PowerShell automation, package deployment, hotfix management, UAT coordination, and production cutover with minimal downtime.
+        </div>
+      </div>
+
+    </main>
+  </div><!-- /body -->
+</div><!-- /page -->
+</body>
+</html>
